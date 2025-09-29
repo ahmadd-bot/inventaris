@@ -2,7 +2,7 @@
     <div class="row">
         <form class="card col-lg-6" action="{{ route ('user.store') }}" method="POST">
             <div class="card-body">
-                @include('kategori.partials._form')
+                @include('user.partials._form')
             </div>
         </form>
     </div>
