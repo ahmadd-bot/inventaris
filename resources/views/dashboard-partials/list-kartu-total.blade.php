@@ -9,6 +9,13 @@
             'color' => 'primary',
         ],
         [
+            'text' => 'PEMINJAMAN AKTIF',
+            'total' => \App\Models\Peminjaman::where('status', 'Dipinjam')->count(),
+            'route' => 'peminjaman.index',
+            'icon' => 'bi-arrow-left-right',
+            'color' => 'warning',
+        ],
+        [
             'text' => 'TOTAL KATEGORI',
             'total' => $jumlahKategori,
             'route' => 'kategori.index',

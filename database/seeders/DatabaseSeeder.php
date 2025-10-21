@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
            RolePermissionSeeder::class,
            KategoriSeeder::class,
            LokasiSeeder::class,
-           BarangSeeder::class, 
+           BarangSeeder::class,
+           DetailBarangSeeder::class, // TAMBAHKAN INI
         ]);
 
         $admin = User::factory()->create([
@@ -32,6 +33,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $admin->assignRole('admin');
-        $petugas->assignRole ('petugas');
+        $petugas->assignRole('petugas');
     }
 }

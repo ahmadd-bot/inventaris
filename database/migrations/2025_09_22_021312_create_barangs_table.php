@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('barangs', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_barang',  50)->unique();
-            $table->string('nama_barang',  150);
+            $table->string('kode_barang', 50)->unique();
+            $table->string('nama_barang', 150);
 
             $table->foreignId('kategori_id')
                 ->constrained('kategoris')
@@ -26,9 +26,21 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('restrict');
 
-            $table->Integer('jumlah')->default(0);
+            $table->integer('jumlah')->default(0);
+            $table->boolean('is_per_unit')->default(false)->comment('true = per unit, false = tidak per unit');
             $table->string('satuan', 20);
-            $table->enum('kondisi', ['Baik', 'Rusak ringan', 'Rusak berat'])->default('Baik');
+
+            // kondisi barang
+            $table->enum('kondisi', ['Baik', 'Rusak ringan', 'Rusak berat'])->nullable();
+
+
+            // kolom baru yang kamu tambahkan
+            $table->enum('status_pinjam', ['Dapat Dipinjam', 'Tidak Dapat Dipinjam'])
+                ->default('Dapat Dipinjam');
+
+            $table->enum('sumber_dana', ['Pemerintah', 'Donatur', 'Swadaya'])
+                ->default('Pemerintah');
+
             $table->date('tanggal_pengadaan');
             $table->string('gambar')->nullable();
             $table->timestamps();

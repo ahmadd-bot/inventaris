@@ -16,9 +16,10 @@ class DashboardController extends Controller
         $jumlahLokasi = Lokasi::count();
         $jumlahUser = User::count();
 
-        $kondisiBaik = Barang::where('kondisi', 'Baik')->count();
-        $kondisiRusakRingan = Barang::where('kondisi', 'Rusak Ringan')->count();
-        $kondisiRusakBerat = Barang::where('kondisi', 'Rusak Berat')->count();
+        $kondisiBaik = \App\Models\DetailBarang::where('kondisi', 'Baik')->count();
+        $kondisiRusakRingan = \App\Models\DetailBarang::where('kondisi', 'Rusak ringan')->count();
+        $kondisiRusakBerat = \App\Models\DetailBarang::where('kondisi', 'Rusak berat')->count();
+
 
         $barangTerbaru = Barang::with(['kategori', 'lokasi'])->latest()->take(5)->get();
 

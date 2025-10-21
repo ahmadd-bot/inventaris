@@ -9,6 +9,6 @@
         <h1>{{ $title }}</h1>
         <p>Tanggal Cetak: {{ $date }}</p>
     </div>
-    @include('barang..partials.list-laporan')
+    @include('barang.partials.list-laporan')
 </body>
 </html>

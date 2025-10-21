@@ -21,7 +21,7 @@ class KategoriSeeder extends Seeder
                 'updated_at' => now()
             ],
             [
-                'nama_ategori' => 'Alat Tulis Kantor (ATK)',
+                'nama_kategori' => 'Alat Tulis Kantor (ATK)',
                 'created_at' => now(),
                 'updated_at' => now()
             ],

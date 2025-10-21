@@ -1,10 +1,11 @@
 <x-main-layout :title-page="__('Edit Barang')">
-    <form class="card" action="{{ route('barang.update', $barang->id) }}" method="post"
-        enctype="multipart/form-data">
-
+    <form class="card" action="{{ route('barang.update', $barang->id) }}" method="POST" enctype="multipart/form-data">
         <div class="card-body">
             @method('PUT')
-            @include('barang.partials._form', ['update' => true]) 
+            @php
+                $update = true;
+            @endphp
+            @include('barang.partials._form')
         </div>
     </form>
 </x-main-layout>
